@@ -2,6 +2,8 @@
 
 ## VLANs
 
+(First 100 addresses are excluded from dhcp, meant for static. (1-100))
+
 |id|name        |subnet             |num. addr. |
 |--|------------|-------------------|-----------|
 |11|Management  |192.168.0.0/18     |16384      |
@@ -28,7 +30,17 @@
 * VTP: VLAN Trunking Protocol
 * Native VLAN: What VLAN to treat untagged frame as
 * Each physical switch port belongs to a VLAN
+* Delete switch config (DOESN'T AFFECT VLAN INFO): `erase startup-config` and then`reload`
+* Delete switch VLAN info: 
+        dir flash:
+        // finn vlan.dat
+        delete flash:vlan.dat
+        reload
+* `show interface brief`
+* `show interface trunk`
+* stop command from running: shift+6
 
 ##  Questions
 
 * How to simulate internet-connection?
+* What is (on router) "%Error opening tftp://10.10.0.8/network-config (Timed out)
