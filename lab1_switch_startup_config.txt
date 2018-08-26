@@ -125,7 +125,7 @@ interface Vlan1
  shutdown
 !
 interface Vlan11
- ip address 192.168.0.2 255.255.255.192
+ ip address 192.168.11.2 255.255.255.0
 !
 ip http server
 ip http secure-server

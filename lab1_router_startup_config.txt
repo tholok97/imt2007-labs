@@ -28,35 +28,35 @@ no aaa new-model
 !
 !
 !
-ip dhcp excluded-address 192.168.0.1 192.168.0.10
-ip dhcp excluded-address 192.168.128.1 192.168.128.10
-ip dhcp excluded-address 192.168.192.1 192.168.192.10
-ip dhcp excluded-address 192.168.224.1 192.168.224.10
-ip dhcp excluded-address 192.168.64.1 192.168.64.10
+ip dhcp excluded-address 192.168.11.1 192.168.11.10
+ip dhcp excluded-address 192.168.12.1 192.168.12.10
+ip dhcp excluded-address 192.168.13.1 192.168.13.10
+ip dhcp excluded-address 192.168.21.1 192.168.21.10
+ip dhcp excluded-address 192.168.22.1 192.168.22.10
 !
 ip dhcp pool VLAN_11
- network 192.168.0.0 255.255.255.192
- default-router 192.168.0.1
+ network 192.168.11.0 255.255.255.0
+ default-router 192.168.11.1
  dns-server 129.241.0.200
 !
 ip dhcp pool VLAN_12
- network 192.168.64.0 255.255.255.192
- default-router 192.168.64.1
+ network 192.168.12.0 255.255.255.0
+ default-router 192.168.12.1
  dns-server 129.241.0.200
 !
 ip dhcp pool VLAN_13
- network 192.168.128.0 255.255.255.192
- default-router 192.168.128.1
+ network 192.168.13.0 255.255.255.0
+ default-router 192.168.13.1
  dns-server 129.241.0.200
 !
 ip dhcp pool VLAN_21
- network 192.168.192.0 255.255.255.224
- default-router 192.168.192.1
+ network 192.168.21.0 255.255.255.0
+ default-router 192.168.21.1
  dns-server 129.241.0.200
 !
 ip dhcp pool VLAN_22
- network 192.168.224.0 255.255.255.224
- default-router 192.168.224.1
+ network 192.168.22.0 255.255.255.0
+ default-router 192.168.22.1
  dns-server 129.241.0.200
 !
 !
@@ -109,31 +109,31 @@ interface GigabitEthernet0/1
 !
 interface GigabitEthernet0/1.11
  encapsulation dot1Q 11
- ip address 192.168.0.1 255.255.255.192
+ ip address 192.168.11.1 255.255.255.0
  ip nat inside
  ip virtual-reassembly in
 !
 interface GigabitEthernet0/1.12
  encapsulation dot1Q 12
- ip address 192.168.64.1 255.255.255.192
+ ip address 192.168.12.1 255.255.255.0
  ip nat inside
  ip virtual-reassembly in
 !
 interface GigabitEthernet0/1.13
  encapsulation dot1Q 13
- ip address 192.168.128.1 255.255.255.192
+ ip address 192.168.13.1 255.255.255.0
  ip nat inside
  ip virtual-reassembly in
 !
 interface GigabitEthernet0/1.21
  encapsulation dot1Q 21
- ip address 192.168.192.1 255.255.255.224
+ ip address 192.168.21.1 255.255.255.0
  ip nat inside
  ip virtual-reassembly in
 !
 interface GigabitEthernet0/1.22
  encapsulation dot1Q 22
- ip address 192.168.224.1 255.255.255.224
+ ip address 192.168.22.1 255.255.255.0
  ip nat inside
  ip virtual-reassembly in
 !
@@ -155,7 +155,7 @@ ip nat inside source list 1 interface GigabitEthernet0/0 overload
 !
 !
 !
-access-list 1 permit 192.168.0.0 0.0.255.255
+access-list 1 permit 192.168.0.0 0.0.0.255
 !
 control-plane
 !

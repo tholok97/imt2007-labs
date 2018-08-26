@@ -2,21 +2,21 @@
 
 ## VLANs
 
-(First 100 addresses are excluded from dhcp, meant for static. (1-100))
+(First 10 addresses are excluded from dhcp, meant for static. (1-10))
 
 |id|name        |subnet             |num. addr. |
 |--|------------|-------------------|-----------|
-|11|Management  |192.168.0.0/18     |16384      |
-|12|Staff       |192.168.64.0/18    |16384      |
-|13|Guests      |192.168.128.0/18   |16384      |
-|21|AP1         |192.168.192.0/19   |8192       |
-|22|AP2         |192.168.224.0/19   |8192       |
+|11|Management  |192.168.11.0/24    | 254       |
+|12|Staff       |192.168.12.0/24    | 254       |
+|13|Guests      |192.168.13.0/24    | 254       |
+|21|AP1         |192.168.21.0/24    | 254       |
+|22|AP2         |192.168.22.0/24    | 254       |
 
 ## Devices
 
 (Each VLAN has a sub-interface on g0/1 on the router, and this sub-interface is assigned the first address in the subnet)
 
-* switch0: 192.168.0.2/18
+* switch0: 192.168.11.2/18
 
 ## Notes
 
