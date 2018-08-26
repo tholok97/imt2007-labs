@@ -4,7 +4,7 @@
 
 (First 10 addresses are excluded from dhcp, meant for static. (1-10))
 
-|id|name        |subnet             |num. addr. |
+|id|name        |subnet             |num. hosts. |
 |--|------------|-------------------|-----------|
 |11|Management  |192.168.11.0/24    | 254       |
 |12|Staff       |192.168.12.0/24    | 254       |
