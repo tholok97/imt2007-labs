@@ -33,7 +33,17 @@ spanning-tree extend system-id
 !
 vlan internal allocation policy ascending
 !
-!
+! adding VLANs (not part of running config, added myself)
+vlan 11
+ name Management
+vlan 12
+ name Staff
+vlan 13
+ name Guests
+vlan 21
+ name AP1
+vlan 22
+ name AP2
 !
 !
 !
