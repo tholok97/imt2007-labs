@@ -1,3 +1,5 @@
+! Password is 'Cisco'. Paste this while in conf t, and 
+! wait a little while for the interfaces to go up
 Building configuration...
 
 Current configuration : 2661 bytes
@@ -40,13 +42,13 @@ bridge irb
 !
 !
 interface Dot11Radio0
+ mbssid
  no ip address
  !
  ssid employee_network
  !
  antenna gain 0
  stbc
- mbssid
  station-role root
  bridge-group 1
  bridge-group 1 subscriber-loop-control
@@ -54,6 +56,7 @@ interface Dot11Radio0
  bridge-group 1 block-unknown-source
  no bridge-group 1 source-learning
  no bridge-group 1 unicast-flooding
+ no shutdown
 !
 interface Dot11Radio0.11
 !
@@ -67,6 +70,7 @@ interface Dot11Radio0.12
  no bridge-group 2 unicast-flooding
 !
 interface Dot11Radio1
+ mbssid
  no ip address
  !
  ssid employee_network
@@ -75,7 +79,6 @@ interface Dot11Radio1
  peakdetect
  no dfs band block
  stbc
- mbssid
  channel dfs
  station-role root
  bridge-group 1
@@ -84,6 +87,7 @@ interface Dot11Radio1
  bridge-group 1 block-unknown-source
  no bridge-group 1 source-learning
  no bridge-group 1 unicast-flooding
+ no shutdown
 !
 interface Dot11Radio1.12
  encapsulation dot1Q 12
