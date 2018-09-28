@@ -103,6 +103,7 @@ interface GigabitEthernet0/0
  speed auto
 !
 interface GigabitEthernet0/1
+ no shutdown
  no ip address
  duplex auto
  speed auto
