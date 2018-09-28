@@ -1,9 +1,4 @@
-Building configuration...
-
-Current configuration : 2909 bytes
-!
-! Last configuration change at 19:00:41 UTC Tue Feb 17 2015
-!
+! Configures router for lab1
 version 15.4
 service timestamps debug datetime msec
 service timestamps log datetime msec
