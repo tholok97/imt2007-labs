@@ -1,10 +1,7 @@
-! Password is 'Cisco'. Paste this while in conf t, and 
-! wait a little while for the interfaces to go up
-Building configuration...
-
-Current configuration : 2661 bytes
-!
-! Last configuration change at 14:18:30 UTC Mon Jun 14 1993
+! - Configures AP for both task 3 and 4. See commit history 
+!   for example of only task 3
+! - Password is 'Cisco'. Paste this while in conf t, and 
+!   wait a little while for the interfaces to go up
 version 15.3
 no service pad
 service timestamps debug datetime msec
