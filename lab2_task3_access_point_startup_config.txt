@@ -31,6 +31,10 @@ dot11 ssid employee_network
    authentication open
    mbssid guest-mode
 !
+dot11 ssid employee_network_2
+   vlan 12
+   authentication open
+   mbssid guest-mode
 !
 !
 !
@@ -43,6 +47,7 @@ bridge irb
 !
 interface Dot11Radio0
  mbssid
+ speed  basic-12.0
  no ip address
  !
  ssid employee_network
@@ -73,7 +78,7 @@ interface Dot11Radio1
  mbssid
  no ip address
  !
- ssid employee_network
+ ssid employee_network_2
  !
  antenna gain 0
  peakdetect
