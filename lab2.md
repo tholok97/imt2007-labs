@@ -1,5 +1,10 @@
 # Notes for solution to lab 2
 
+Handy resources: 
+
+* <https://www.cisco.com/c/en/us/td/docs/wireless/access_point/15-3-3/configuration/guide/cg15-3-3/cg15-3-3-chap4-first.html#39486>
+* <https://www.cisco.com/c/en/us/support/docs/wireless/aironet-1100-series/46141-vlanswireless.html#brg>
+
 ## Task 4
 
 * "Disabled DSSS speeds" by setting ´speed basic-12.0´
