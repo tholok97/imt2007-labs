@@ -84,3 +84,10 @@ Restarting system.
 * PSK "key" (?): VERYSECRETPSK
 * For uploading the file from the controller to my computer via tftpd64, path "/" had to be used.
 * Uploaded two files for wlc config. `config.cisco` is the file taken straight from the wlc. `lab3_wlc_config.cisco` is the same file, but copy-pasted. Github gave a warning about line-endings, so I'm leaving the config.cisco file in for now in case the other one doesn't work.
+
+## Task 3
+
+* Had lots of problems with second part of this task. The second AP refused to connect to the WLC. When using an identical setup, and plugging in the second AP instead, it all worked fine. I'm suspecting there's an issue with the second AP, so I've decided to give up and retry later on a another pod. Some facts:
+    * They seem to be the same model and version
+    * I've fixed the clock on both controller and AP, but that didn't help
+    * I've browsed solutions to similar issues. One had to do with licensing, the other had to do with NTP. None helped, although I did not explore the licensing solution too much.
