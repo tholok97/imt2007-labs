@@ -1,0 +1,187 @@
+! This configures the router identically to lab1, but adds:
+! - option 43 to dhcp
+! - helper-address on g0/1.22 to direct WLC discovery broadcast to controller.
+!
+! ---
+!
+! Last configuration change at 15:43:12 UTC Sun Oct 7 2018
+!
+version 15.4
+service timestamps debug datetime msec
+service timestamps log datetime msec
+no service password-encryption
+!
+hostname Router
+!
+boot-start-marker
+boot-end-marker
+!
+!
+!
+no aaa new-model
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+ip dhcp excluded-address 192.168.11.1 192.168.11.10
+ip dhcp excluded-address 192.168.12.1 192.168.12.10
+ip dhcp excluded-address 192.168.13.1 192.168.13.10
+ip dhcp excluded-address 192.168.21.1 192.168.21.10
+ip dhcp excluded-address 192.168.22.1 192.168.22.10
+!
+ip dhcp pool VLAN_11
+ network 192.168.11.0 255.255.255.0
+ default-router 192.168.11.1
+ dns-server 129.241.0.200
+!
+ip dhcp pool VLAN_12
+ network 192.168.12.0 255.255.255.0
+ default-router 192.168.12.1
+ dns-server 129.241.0.200
+!
+ip dhcp pool VLAN_13
+ network 192.168.13.0 255.255.255.0
+ default-router 192.168.13.1
+ dns-server 129.241.0.200
+!
+ip dhcp pool VLAN_21
+ network 192.168.21.0 255.255.255.0
+ default-router 192.168.21.1
+ dns-server 129.241.0.200
+ option 43 hex f104.c0a8.0b0a
+!
+ip dhcp pool VLAN_22
+ network 192.168.22.0 255.255.255.0
+ default-router 192.168.22.1
+ dns-server 129.241.0.200
+!
+!
+!
+ip cef
+no ipv6 cef
+!
+multilink bundle-name authenticated
+!
+!
+cts logging verbose
+!
+!
+license udi pid CISCO2901/K9 sn FCZ1922C4SV
+license boot module c2900 technology-package securityk9
+hw-module usb disable
+!
+!
+!
+redundancy
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+interface Embedded-Service-Engine0/0
+ no ip address
+ shutdown
+!
+interface GigabitEthernet0/0
+ ip address dhcp
+ ip nat outside
+ ip virtual-reassembly in
+ duplex auto
+ speed auto
+!
+interface GigabitEthernet0/1
+ no ip address
+ duplex auto
+ speed auto
+!
+interface GigabitEthernet0/1.11
+ encapsulation dot1Q 11
+ ip address 192.168.11.1 255.255.255.0
+ ip nat inside
+ ip virtual-reassembly in
+!
+interface GigabitEthernet0/1.12
+ encapsulation dot1Q 12
+ ip address 192.168.12.1 255.255.255.0
+ ip nat inside
+ ip virtual-reassembly in
+!
+interface GigabitEthernet0/1.13
+ encapsulation dot1Q 13
+ ip address 192.168.13.1 255.255.255.0
+ ip nat inside
+ ip virtual-reassembly in
+!
+interface GigabitEthernet0/1.21
+ encapsulation dot1Q 21
+ ip address 192.168.21.1 255.255.255.0
+ ip helper-address 192.168.11.10
+ ip nat inside
+ ip virtual-reassembly in
+!
+interface GigabitEthernet0/1.22
+ encapsulation dot1Q 22
+ ip address 192.168.22.1 255.255.255.0
+ ip helper-address 192.168.11.10
+ ip nat inside
+ ip virtual-reassembly in
+!
+interface Serial0/0/0
+ no ip address
+ shutdown
+ clock rate 2000000
+!
+interface Serial0/0/1
+ no ip address
+ shutdown
+ clock rate 2000000
+!
+ip forward-protocol nd
+ip forward-protocol udp 5246
+!
+no ip http server
+no ip http secure-server
+!
+ip nat inside source list 1 interface GigabitEthernet0/0 overload
+!
+!
+!
+access-list 1 permit 192.168.0.0 0.0.255.255
+!
+control-plane
+!
+!
+!
+line con 0
+line aux 0
+line 2
+ no activation-character
+ no exec
+ transport preferred none
+ transport output pad telnet rlogin lapb-ta mop udptn v120 ssh
+ stopbits 1
+line vty 0 4
+ login
+ transport input none
+!
+scheduler allocate 20000 1000
+ntp server pnpntpserver.ciscolab.local
+!
+end
