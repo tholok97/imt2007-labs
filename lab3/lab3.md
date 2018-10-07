@@ -102,6 +102,7 @@ Restarting system.
         ip forward-protocol udp 5246
         int g0/1.22
             ip helper-address 192.168.11.10
+            
 * Note: An AP connected directly to the WLC on a PoE port gets assigned an address in VLAN 11, and can successfully connect to the WLC.
 
 ## Task 4
