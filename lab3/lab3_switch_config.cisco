@@ -1,0 +1,147 @@
+! This config is the exact same as the one in lab1,
+! but with native vlan set to 11 on fa0/7 - 8
+version 15.0
+no service pad
+service timestamps debug datetime msec
+service timestamps log datetime msec
+no service password-encryption
+!
+hostname Switch
+!
+boot-start-marker
+boot-end-marker
+!
+!
+no aaa new-model
+system mtu routing 1500
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+spanning-tree mode pvst
+spanning-tree extend system-id
+!
+vlan internal allocation policy ascending
+!
+! adding VLANs (not part of running config, added myself)
+vlan 11
+ name Management
+vlan 12
+ name Staff
+vlan 13
+ name Guests
+vlan 21
+ name AP1
+vlan 22
+ name AP2
+!
+!
+!
+!
+interface FastEthernet0/1
+ switchport access vlan 11
+!
+interface FastEthernet0/2
+ switchport access vlan 11
+!
+interface FastEthernet0/3
+ switchport access vlan 11
+!
+interface FastEthernet0/4
+ switchport access vlan 11
+!
+interface FastEthernet0/5
+ switchport access vlan 11
+!
+interface FastEthernet0/6
+ switchport access vlan 11
+!
+interface FastEthernet0/7
+ switchport trunk native vlan 11
+ switchport trunk allowed vlan 11-13
+ switchport mode trunk
+!
+interface FastEthernet0/8
+ switchport trunk native vlan 11
+ switchport trunk allowed vlan 11-13
+ switchport mode trunk
+!
+interface FastEthernet0/9
+ switchport access vlan 12
+!
+interface FastEthernet0/10
+ switchport access vlan 12
+!
+interface FastEthernet0/11
+ switchport access vlan 12
+!
+interface FastEthernet0/12
+ switchport access vlan 12
+!
+interface FastEthernet0/13
+ switchport access vlan 13
+!
+interface FastEthernet0/14
+ switchport access vlan 13
+!
+interface FastEthernet0/15
+ switchport access vlan 13
+!
+interface FastEthernet0/16
+ switchport access vlan 13
+!
+interface FastEthernet0/17
+ switchport access vlan 21
+!
+interface FastEthernet0/18
+ switchport access vlan 21
+!
+interface FastEthernet0/19
+ switchport access vlan 21
+!
+interface FastEthernet0/20
+ switchport access vlan 21
+!
+interface FastEthernet0/21
+ switchport access vlan 22
+!
+interface FastEthernet0/22
+ switchport access vlan 22
+!
+interface FastEthernet0/23
+ switchport access vlan 22
+!
+interface FastEthernet0/24
+ switchport access vlan 22
+!
+interface GigabitEthernet0/1
+ switchport trunk allowed vlan 11-13,21,22
+ switchport mode trunk
+!
+interface GigabitEthernet0/2
+ switchport trunk allowed vlan 11-13,21,22
+ switchport mode trunk
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+interface Vlan11
+ ip address 192.168.11.2 255.255.255.0
+!
+ip http server
+ip http secure-server
+!
+!
+line con 0
+line vty 5 15
+!
+end
+GET | 302 | 1s 214 ms | GitHub.com
+GET | 200 | 245 ms
