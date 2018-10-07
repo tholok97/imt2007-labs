@@ -92,3 +92,7 @@ Restarting system.
     * They seem to be the same model and version
     * I've fixed the clock on both controller and AP, but that didn't help
     * I've browsed solutions to similar issues. One had to do with licensing, the other had to do with NTP. None helped, although I did not explore the licensing solution too much.
+* **Solution to above problem**:
+    * Reason one AP worked and one didn't: Because the one that worked had the WLC management IP address stored from connecting to it on a vlan 11 port. Once this IP was deleted both APs had the same issue.
+    * The problem was that I wrote the option 43 IP address in the wrong format. I wrote `option 43 ascii "192.168.11.10`, but the AP was expecting `option 43 hex f104C0A80B0A`. 
+    * [Link to where I found the solution](https://www.cisco.com/c/en/us/support/docs/wireless-mobility/wireless-lan-wlan/97066-dhcp-option-43-00.html#anc9)
