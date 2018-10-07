@@ -87,6 +87,7 @@ Restarting system.
 
 ## Task 3
 
+* Did not manage to upload the `task3_wlc_config.cisco` file to the WLC...
 * REMEMBER TO MAKE SURE THE TIME IS CORRECT ON THE WLC!!
 * Had lots of problems with second part of this task. The second AP refused to connect to the WLC. When using an identical setup, and plugging in the second AP instead, it all worked fine. I'm suspecting there's an issue with the second AP, so I've decided to give up and retry later on a another pod. Some facts:
     * They seem to be the same model and version
