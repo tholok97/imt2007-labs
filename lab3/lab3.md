@@ -102,3 +102,8 @@ Restarting system.
         int g0/1.22
             ip helper-address 192.168.11.10
 * Note: An AP connected directly to the WLC on a PoE port gets assigned an address in VLAN 11, and can successfully connect to the WLC.
+
+## Task 4
+
+* Did all of it in the GUI. Googling each specific task led me in the right direction.
+* Not sure if I managed to setup enforcing OFDM modulation..
