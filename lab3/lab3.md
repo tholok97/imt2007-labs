@@ -96,3 +96,9 @@ Restarting system.
     * Reason one AP worked and one didn't: Because the one that worked had the WLC management IP address stored from connecting to it on a vlan 11 port. Once this IP was deleted both APs had the same issue.
     * The problem was that I wrote the option 43 IP address in the wrong format. I wrote `option 43 ascii "192.168.11.10`, but the AP was expecting `option 43 hex f104C0A80B0A`. 
     * [Link to where I found the solution](https://www.cisco.com/c/en/us/support/docs/wireless-mobility/wireless-lan-wlan/97066-dhcp-option-43-00.html#anc9)
+* To make router relay WLC discovery broadcasts to controller across VLANs:
+
+        ip forward-protocol udp 5246
+        int g0/1.22
+            ip helper-address 192.168.11.10
+* Note: An AP connected directly to the WLC on a PoE port gets assigned an address in VLAN 11, and can successfully connect to the WLC.
